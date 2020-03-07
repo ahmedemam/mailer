@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent
@@ -11,7 +12,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    AngularEditorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

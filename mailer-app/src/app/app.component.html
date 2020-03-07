@@ -1,3 +1,24 @@
 <div class="container">
   <h1>E-Mail Client Application</h1>
+  <input 
+    class=""
+    type="email"
+    placeholder="From"
+    [(ngModel)]="fromEmail"
+    >
+  <div>
+    <input
+      class="" 
+      type="email"
+      [(ngModel)]="toEmail"
+      placeholder="To"
+     >
+    <button>Add To Email</button>
+  </div>
+  <div>To: </div>
+  <angular-editor
+   [placeholder]="'Write your email body....'"
+   ></angular-editor>
+  <button > Send Email</button>
+
 </div>

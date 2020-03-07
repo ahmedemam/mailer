@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Mail } from './_models/mail-model';
+import { Email } from './_models/mail-model';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,11 @@ import { Mail } from './_models/mail-model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  mail: Mail;
+  private email: Email;
+  fromEmail: string;
+  toEmails: string [];
+  toEmail: string;
+  htmlContent: any;
 
   constructor(){}
 

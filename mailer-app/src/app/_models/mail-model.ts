@@ -1,7 +1,7 @@
-export interface Mail {
+export interface Email {
     from: string;
     to: string[];
     body: any;
-    headers: [];
-    image: Blob[];
+    headers: any;
+    htmlContent: any;
 }
