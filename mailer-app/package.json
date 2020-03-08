@@ -24,6 +24,7 @@
     "bootstrap": "^4.4.1",
     "ckeditor4-angular": "^1.1.0",
     "jquery": "^3.4.1",
+    "ngx-ui-loader": "^8.0.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
