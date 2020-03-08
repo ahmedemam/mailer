@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Email } from './_models/mail-model';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { EmailService } from './_services/email.service';
 
 @Component({
   selector: 'app-root',
@@ -50,13 +52,13 @@ export class AppComponent {
 
   };
 
-  constructor() { }
+  constructor(private ngxService: NgxUiLoaderService, private emailService: EmailService) { }
 
 
   addReceiverEmail() {
     if (this.receiverEmail && AppComponent.EMAIL_REGEX_PATTERN.test(this.receiverEmail) &&
-     !this.receiversEmails.includes(this.receiverEmail) && this.senderEmail && AppComponent.EMAIL_REGEX_PATTERN
-     && this.receiverEmail !== this.senderEmail) {
+      !this.receiversEmails.includes(this.receiverEmail) && this.senderEmail && AppComponent.EMAIL_REGEX_PATTERN
+      && this.receiverEmail !== this.senderEmail) {
       this.receiversEmails = [...this.receiversEmails, this.receiverEmail];
       this.receiverEmail = '';
     }
@@ -101,6 +103,15 @@ export class AppComponent {
     console.log(validationResult);
     if (validationResult.state === true) {
       console.log(this.email);
+      this.ngxService.start();
+      this.emailService.sendEmail(this.email).subscribe((response) => {
+        this.email = null;
+        console.log('response', response);
+        this.ngxService.stop();
+      }, (error) => {
+        console.log('send email: error', error);
+        this.ngxService.stop();
+      });
     } else {
       this.errorMessage = validationResult;
     }
