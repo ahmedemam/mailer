@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     AngularEditorModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NgxUiLoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

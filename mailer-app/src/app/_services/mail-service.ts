@@ -1,2 +1,2 @@
-export interface MailService {
+export class MailService {
 }
