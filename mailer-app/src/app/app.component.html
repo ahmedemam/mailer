@@ -16,6 +16,11 @@
       <span class="badge badge-primary">{{email}}</span>
     </div>
   </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email Subject</label>
+    <input type="text" class="form-control" id="" [(ngModel)]="subject" aria-describedby="subject">
+    <small id="emailHelp" class="form-text text-muted">Email Subject</small>
+  </div>
   <angular-editor
    [config]="editorConfig"
    [(ngModel)]="htmlEmailContent"

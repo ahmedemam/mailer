@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { Email } from './_models/mail-model';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-<<<<<<< HEAD
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { EmailService } from './_services/email.service';
-=======
->>>>>>> 41e7e7d9995312a892f3c0a5493cd24cb8e967d3
 
 @Component({
   selector: 'app-root',
@@ -19,10 +16,12 @@ export class AppComponent {
   receiversEmails: string[] = [];
   receiverEmail = '';
   htmlEmailContent: any = '';
+  subject = '';
   errorMessage: any = {
     state: true,
     message: ''
   };
+
   editorConfig: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -55,22 +54,13 @@ export class AppComponent {
 
   };
 
-<<<<<<< HEAD
   constructor(private ngxService: NgxUiLoaderService, private emailService: EmailService) { }
-=======
-  constructor() { }
->>>>>>> 41e7e7d9995312a892f3c0a5493cd24cb8e967d3
 
 
   addReceiverEmail() {
     if (this.receiverEmail && AppComponent.EMAIL_REGEX_PATTERN.test(this.receiverEmail) &&
-<<<<<<< HEAD
       !this.receiversEmails.includes(this.receiverEmail) && this.senderEmail && AppComponent.EMAIL_REGEX_PATTERN
       && this.receiverEmail !== this.senderEmail) {
-=======
-     !this.receiversEmails.includes(this.receiverEmail) && this.senderEmail && AppComponent.EMAIL_REGEX_PATTERN
-     && this.receiverEmail !== this.senderEmail) {
->>>>>>> 41e7e7d9995312a892f3c0a5493cd24cb8e967d3
       this.receiversEmails = [...this.receiversEmails, this.receiverEmail];
       this.receiverEmail = '';
     }
@@ -80,20 +70,28 @@ export class AppComponent {
   validateEmail() {
     if (this.senderEmail && AppComponent.EMAIL_REGEX_PATTERN.test(this.senderEmail)) {
       if (this.receiversEmails.length > 0) {
-        if (this.htmlEmailContent !== null || this.htmlEmailContent !== undefined) {
-          this.email = {
-            from: this.senderEmail,
-            to: this.receiversEmails,
-            htmlContent: this.htmlEmailContent
-          };
-          return {
-            state: true,
-            message: 'email is valid'
+        if (this.subject.length > 0) {
+          if (this.htmlEmailContent !== null || this.htmlEmailContent !== undefined) {
+            this.email = {
+              from: this.senderEmail,
+              to: this.receiversEmails,
+              htmlContent: this.htmlEmailContent,
+              subject: this.subject
+            };
+            return {
+              state: true,
+              message: 'email is valid'
+            }
+          } else {
+            return {
+              state: false,
+              message: 'Email Body is empty. Must have an email Body.'
+            };
           }
         } else {
           return {
             state: false,
-            message: 'Email body is empty. Email must have a body.'
+            message: 'Email subject is empty. Must have an email subject.'
           };
         }
       } else {
