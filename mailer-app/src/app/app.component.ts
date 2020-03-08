@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { Email } from './_models/mail-model';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+<<<<<<< HEAD
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { EmailService } from './_services/email.service';
+=======
+>>>>>>> 41e7e7d9995312a892f3c0a5493cd24cb8e967d3
 
 @Component({
   selector: 'app-root',
@@ -52,13 +55,22 @@ export class AppComponent {
 
   };
 
+<<<<<<< HEAD
   constructor(private ngxService: NgxUiLoaderService, private emailService: EmailService) { }
+=======
+  constructor() { }
+>>>>>>> 41e7e7d9995312a892f3c0a5493cd24cb8e967d3
 
 
   addReceiverEmail() {
     if (this.receiverEmail && AppComponent.EMAIL_REGEX_PATTERN.test(this.receiverEmail) &&
+<<<<<<< HEAD
       !this.receiversEmails.includes(this.receiverEmail) && this.senderEmail && AppComponent.EMAIL_REGEX_PATTERN
       && this.receiverEmail !== this.senderEmail) {
+=======
+     !this.receiversEmails.includes(this.receiverEmail) && this.senderEmail && AppComponent.EMAIL_REGEX_PATTERN
+     && this.receiverEmail !== this.senderEmail) {
+>>>>>>> 41e7e7d9995312a892f3c0a5493cd24cb8e967d3
       this.receiversEmails = [...this.receiversEmails, this.receiverEmail];
       this.receiverEmail = '';
     }
