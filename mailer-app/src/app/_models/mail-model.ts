@@ -3,4 +3,5 @@ export interface Email {
     to: string[];
     htmlContent: any;
     subject: string;
+    text?: string;
 }

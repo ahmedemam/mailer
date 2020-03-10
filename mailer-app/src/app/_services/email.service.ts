@@ -8,10 +8,17 @@ import { environment } from 'src/environments/environment';
 })
 export class EmailService {
 
-  httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
   constructor(private http: HttpClient) { }
 
   public sendEmail(email: Email) {
-    return this.http.post<Email>(`${environment.MAIL_SERVICE}`, this.httpOptions);
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': 'http://localhost:3000'
+        }
+      )
+    };
+    return this.http.post<Email>(`${environment.MAIL_SERVICE}/send`, email , httpOptions);
   }
 }

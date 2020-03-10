@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  MAIL_SERVICE: "localhost:3000/mail/"
+  MAIL_SERVICE: 'http://localhost:3000/mailer'
 };
 
 /*
